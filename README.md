@@ -92,3 +92,6 @@ User sees chart with data regarding what types of events are taken place through
 6. As a user,
     I should be able to display charts visualizing event details
     So that I could compare events from one another to help me make a choice.
+
+## Serverless functions
+The Meet app uses serverless functions which comes from handling requests from the Google Calendar API. Users are able to authorize with the Google OAuth Provider which grants them access to the Google Calendar API. The chosen cloud-service provider for this app is AWS Lambda which will be efficient in areas of scalability, cost and back-end maintenence.
