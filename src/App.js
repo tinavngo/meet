@@ -1,7 +1,7 @@
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
-import './App.css';
 import NumberOfEvents from './components/NumberOfEvents';
+import './App.css';
 
 const App = () => {
   return (
