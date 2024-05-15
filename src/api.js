@@ -36,6 +36,15 @@ export const getAccessToken = async () => {
     }
     return accessToken
 };
+
+// Outcome 2. Access Token Found in localstorage
+const checkToken = async (accessToken) => {
+    const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    );
+    const result = await response.json();
+    return result;
+};
 /**
  * 
  * This function will fetch the list of all events
