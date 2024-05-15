@@ -14,6 +14,28 @@ export const extractLocations = (events) => {
     return locations;
 };
 
+// Getting the Access Token
+export const getAccessToken = async () => {
+    const accessToken = localStorage.getItem('access_token');
+    // Outcome 1. No accessToken found in localstorage
+    const tokenCheck = accessToken && (await checkToken(accessToken));
+
+    if (!accessToken || tokenCheck.error) {
+        await localStorage.removeItem("access_token");
+        const searchParams = new URLSearchParams(window.location.search);
+        const code = await searchParams.get("code");
+        if (!code) {
+            const response = await fetch(
+                "https://do1hq8sag2.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url"
+            );
+            const result = await response.json();
+            const { authUrl } = result;
+            return (window.location.href = authUrl);
+        }
+        return code && getAccessToken(code);
+    }
+    return accessToken
+};
 /**
  * 
  * This function will fetch the list of all events
