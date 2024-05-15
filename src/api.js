@@ -45,6 +45,19 @@ const checkToken = async (accessToken) => {
     const result = await response.json();
     return result;
 };
+
+// Get new token if it does not exist or invalid
+const getToken = async (code) => {
+    const encodeCode = encodeURIComponent(code);
+    const response = await fetch(
+        'https://do1hq8sag2.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+    );
+    const { access_token } = await response.json();
+    access_token && localStorage.setItem("access_token", access_token);
+
+    return access_token;
+};
+
 /**
  * 
  * This function will fetch the list of all events
