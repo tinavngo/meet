@@ -10,11 +10,14 @@ const NumberOfEvents = () => {
 
     return (
         <div id="number-of-events">
+            <p className="showonly">Show only:</p>
             <input 
+            className="NOE"
             type="text"
             value={eventNumber}
             onChange={handleInputChanged}
             />
+            <p className="showonlyevent">events</p>
         </div>
     );
 };

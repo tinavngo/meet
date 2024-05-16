@@ -28,11 +28,12 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Meet</h1>
       <CitySearch 
       allLocations={allLocations} 
       setCurrentCity={setCurrentCity}/>
-      <EventList events={events}/>
       <NumberOfEvents />
+      <EventList events={events}/>
     </div>
   );
 }
