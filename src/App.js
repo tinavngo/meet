@@ -13,9 +13,14 @@ const App = () => {
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [loading, setLoading] = useState('true');
+  const [error, setError] = useState(false);
 
 
   const fetchData = async () => {
+    setLoading(true);
+    setError(false);
+
+    try{
     const allEvents = await getEvents();
     const filteredEvents = currentCity === "See all cities" ?
     allEvents :
@@ -24,31 +29,41 @@ const App = () => {
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
     setLoading('false')
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    setError(true); // Set error state if fetching fails
+  } finally {
+    setLoading(false); // Set loading to false in both success and error cases
+  }
   }
 
-  useEffect(() => {
-    fetchData();
-    setLoading('false')
-}, []);
 
-/* useEffect(() => {
+ useEffect(() => {
 fetchData();
-}, [currentCity]); */
+}, [currentCity]); 
 
 return (
   <div className="App">
-      {loading ? (
-          <div>Content is loading...</div>
-      ):(
-          <>
-              <h1>Meet</h1>
-              <CitySearch 
-              allLocations={allLocations} 
-              setCurrentCity={setCurrentCity}/>
-              <NumberOfEvents />
-              <EventList events={events}/>
-          </>
-      )}
+    <h1>Meet</h1>
+    
+    {/* Load while fetching */}
+    {loading && <p>Content is loading...</p>}
+    {error && <p>Error loading events. Please try again later.</p>}
+    {!loading && !error && (
+      <>
+
+    {/* Search bar */}
+    <CitySearch 
+    allLocations={allLocations} 
+    setCurrentCity={setCurrentCity}/>
+
+    {/* Events filter */}
+    <NumberOfEvents />
+
+    {/* Events */}
+    <EventList events={events}/>
+      </>
+    )}
   </div>
 );
 }
