@@ -12,30 +12,45 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [loading, setLoading] = useState('true');
 
-  useEffect(() => {
-    fetchData();
-  }, [currentCity]);
 
   const fetchData = async () => {
     const allEvents = await getEvents();
     const filteredEvents = currentCity === "See all cities" ?
     allEvents :
     allEvents.filter(event => event.location === currentCity)
+
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
+    setLoading('false')
   }
 
-  return (
-    <div className="App">
-      <h1>Meet</h1>
-      <CitySearch 
-      allLocations={allLocations} 
-      setCurrentCity={setCurrentCity}/>
-      <NumberOfEvents />
-      <EventList events={events}/>
-    </div>
-  );
+  useEffect(() => {
+    fetchData();
+    setLoading('false')
+}, []);
+
+/* useEffect(() => {
+fetchData();
+}, [currentCity]); */
+
+return (
+  <div className="App">
+      {loading ? (
+          <div>Content is loading...</div>
+      ):(
+          <>
+              <h1>Meet</h1>
+              <CitySearch 
+              allLocations={allLocations} 
+              setCurrentCity={setCurrentCity}/>
+              <NumberOfEvents />
+              <EventList events={events}/>
+          </>
+      )}
+  </div>
+);
 }
 
 export default App;
