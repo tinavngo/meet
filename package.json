@@ -2,7 +2,7 @@
   "name": "meet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/tinavngo/meet",
+  "homepage": "https://tinavngo.github.io/meet",
   "dependencies": {
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
