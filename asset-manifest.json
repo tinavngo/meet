@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tinavngo/meet/static/css/main.d57242f4.css",
-    "main.js": "/tinavngo/meet/static/js/main.44d00943.js",
-    "static/js/453.4a9980c6.chunk.js": "/tinavngo/meet/static/js/453.4a9980c6.chunk.js",
-    "service-worker.js": "/tinavngo/meet/service-worker.js",
-    "index.html": "/tinavngo/meet/index.html",
-    "main.d57242f4.css.map": "/tinavngo/meet/static/css/main.d57242f4.css.map",
-    "main.44d00943.js.map": "/tinavngo/meet/static/js/main.44d00943.js.map",
-    "453.4a9980c6.chunk.js.map": "/tinavngo/meet/static/js/453.4a9980c6.chunk.js.map"
+    "main.css": "/meet/static/css/main.d57242f4.css",
+    "main.js": "/meet/static/js/main.73eae28d.js",
+    "static/js/453.4a9980c6.chunk.js": "/meet/static/js/453.4a9980c6.chunk.js",
+    "service-worker.js": "/meet/service-worker.js",
+    "index.html": "/meet/index.html",
+    "main.d57242f4.css.map": "/meet/static/css/main.d57242f4.css.map",
+    "main.73eae28d.js.map": "/meet/static/js/main.73eae28d.js.map",
+    "453.4a9980c6.chunk.js.map": "/meet/static/js/453.4a9980c6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d57242f4.css",
-    "static/js/main.44d00943.js"
+    "static/js/main.73eae28d.js"
   ]
 }
