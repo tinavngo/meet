@@ -15,7 +15,6 @@ const App = () => {
   const [loading, setLoading] = useState('true');
   const [error, setError] = useState(false);
 
-
   const fetchData = async () => {
     setLoading(true);
     setError(false);
@@ -37,15 +36,15 @@ const App = () => {
   }
   }
 
-
  useEffect(() => {
 fetchData();
-}, [currentCity]); 
+setLoading('false');
+}, []); 
 
 return (
   <div className="App">
     <h1>Meet</h1>
-    
+
     {/* Load while fetching */}
     {loading && <p>Content is loading...</p>}
     {error && <p>Error loading events. Please try again later.</p>}
