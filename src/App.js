@@ -55,10 +55,12 @@ return (
     setCurrentCity={setCurrentCity}/>
 
     {/* Events filter */}
-    <NumberOfEvents />
+    <NumberOfEvents
+    setCurrentNOE={setCurrentNOE} />
 
     {/* Events */}
-    <EventList events={events}/>
+    <EventList 
+    events={events}/>
       </>
     )}
   </div>
