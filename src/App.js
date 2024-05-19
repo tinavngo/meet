@@ -27,7 +27,6 @@ const App = () => {
 
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
-    setLoading('false')
   } catch (error) {
     console.error('Error fetching data:', error);
     setError(true); // Set error state if fetching fails
@@ -38,8 +37,7 @@ const App = () => {
 
  useEffect(() => {
 fetchData();
-setLoading('false');
-}, []); 
+}, [currentCity, currentNOE]); 
 
 return (
   <div className="App">
