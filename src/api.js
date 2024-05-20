@@ -17,25 +17,25 @@ export const extractLocations = (events) => {
 // Getting the Access Token
 export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');
-    // Outcome 1. No accessToken found in localstorage
+  
     const tokenCheck = accessToken && (await checkToken(accessToken));
-
+  
     if (!accessToken || tokenCheck.error) {
-        await localStorage.removeItem("access_token");
-        const searchParams = new URLSearchParams(window.location.search);
-        const code = await searchParams.get("code");
-        if (!code) {
-            const response = await fetch(
+      await localStorage.removeItem("access_token");
+      const searchParams = new URLSearchParams(window.location.search);
+      const code = await searchParams.get("code");
+      if (!code) {
+        const response = await fetch(
                 "https://do1hq8sag2.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url"
             );
             const result = await response.json();
-            const { authUrl } = result;
-            return (window.location.href = authUrl);
+            const { authURL } = result;
+            return (window.location.href = authURL);
+          }
+          return code && getToken(code);
         }
-        return code && getToken(code);
-    }
-    return accessToken
-};
+        return accessToken
+    };
 
 // Outcome 2. Access Token Found in localstorage
 const checkToken = async (accessToken) => {
@@ -48,15 +48,22 @@ const checkToken = async (accessToken) => {
 
 // Get new token if it does not exist or invalid
 const getToken = async (code) => {
+    try {
     const encodeCode = encodeURIComponent(code);
     const response = await fetch(
         'https://do1hq8sag2.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
     );
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+    }
     const { access_token } = await response.json();
     access_token && localStorage.setItem("access_token", access_token);
 
     return access_token;
-};
+}catch (error) {
+    error.json();
+}
+}
 
 // Simplify URL to user
 const removeQuery = () => {
