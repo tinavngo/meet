@@ -9,7 +9,7 @@ describe('<App /> component', () => {
         AppDOM = render(<App />).container.firstChild;
     })
 
-    test('renders list of events', () => {
+    test('renders EventList', () => {
         expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
     });
 
@@ -23,6 +23,7 @@ describe('<App /> component', () => {
     });
 });
 
+// Integration testing
 describe('<App /> integration', () => {
     test('renders a list of events matching the city selected by the user', async () => {
       const user = userEvent.setup();

@@ -3,6 +3,7 @@ import { getEvents } from '../api';
 import App from "../App";
 import EventList from '../components/EventList';
 
+
 describe('<EventList /> component', () => {
   let EventListComponent;
   beforeEach(() => {
@@ -31,6 +32,7 @@ describe('<EventList /> component', () => {
 
 });
 
+// Integration testing
 describe('<EventList /> integration', () => {
   test('renders a list of 32 events when the app is mounted and rendered', async () => {
     const AppComponent = render(<App />);

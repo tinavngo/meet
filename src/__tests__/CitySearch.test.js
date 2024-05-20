@@ -73,6 +73,7 @@ describe('<CitySearch /> component', () => {
     });
 });
 
+// Integration testing
 describe('<CitySearch /> integration', () => {
     test('renders suggestions list when the app is rendered.', async () => {
         const user = userEvent.setup();
@@ -89,6 +90,6 @@ describe('<CitySearch /> integration', () => {
         await waitFor(() => {
         const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
         expect(suggestionListItems.length).toBe(allLocations.length + 1);
-        });
+        })
     });
 });
