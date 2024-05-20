@@ -44,7 +44,7 @@ return (
     <h1>Meet</h1>
 
     {/* Load while fetching */}
-    {loading && <p>Content is loading...</p>}
+    {loading && <p>Content is loading... Please wait.</p>}
     {error && <p>Error loading events. Please try again later.</p>}
     {!loading && !error && (
       <>
