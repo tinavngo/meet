@@ -43,6 +43,17 @@ User adds an event to favorites to help filter events they are interested in
  - **When** User selects to favorite an event;
  - **Then** Event is stored in user's favorites
 
+### Feature: Specify Number of Events
+Show 32 events by default when user has not specified number
+ - **Given** Events are rendered on the events app;
+ - **When** The user has not specified a number;
+ - **Then** 32 events are shown by default
+
+ User can change the number of events displayed
+ - **Given** Events are rendered on the events app;
+ - **When** The user has specified a number;
+ - **Then** The app will show the amount of events the user has specified
+
 ### Feature: Use App Offline
 User is able to navigate app without internet
  - **Given** The user is offline;
