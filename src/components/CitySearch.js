@@ -1,10 +1,14 @@
 // src/components/CitySearch.js
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 
 const CitySearch = ({ allLocations, setCurrentCity }) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+
+    useEffect(() => {
+        setSuggestions(allLocations);
+      }, [`${allLocations}`]);
 
     const handleInputChanged = (event) => {
         const value = event.target.value;
@@ -23,9 +27,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         setCurrentCity(value);
     };
 
-    useEffect(() => {
-        setSuggestions(allLocations);
-      }, [`${allLocations}`]);
 
     return (
       <div id="city-search">
@@ -37,9 +38,12 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
         />
-        { showSuggestions ? <ul className="suggestions">
+        { showSuggestions ? 
+        <ul className="suggestions">
             {suggestions.map((suggestion) => {
-                return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
+             <li onClick={handleItemClicked} key={suggestion}>
+                {suggestion}
+                </li>
             })}
             <hr/>
             <li key='See all cities' onClick={handleItemClicked}>
@@ -48,7 +52,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         </ul> : null 
         }
       </div>
-    )
+    );
    }
    
    export default CitySearch;
