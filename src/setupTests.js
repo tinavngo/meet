@@ -8,7 +8,8 @@ import '@testing-library/jest-dom';
 const  MESSAGES_TO_IGNORE = [
     "When testing, code that causes React state updates should be wrapped into act(...):",
     "Error:",
-    "The above error ocurred"
+    "The above error ocurred",
+    "`ReactDOMTestUtils.act` is deprecated in favor of `React.act`."
 ];
 
 const originalError = console.error.bind(console.error);
