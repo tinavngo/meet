@@ -1,5 +1,5 @@
 // src/components/CitySearch.js
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const CitySearch = ({ allLocations, setCurrentCity }) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -8,7 +8,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
     useEffect(() => {
         setSuggestions(allLocations);
-      }, [`${allLocations}`]);
+    }, [`${allLocations}`]);
 
     const handleInputChanged = (event) => {
         const value = event.target.value;
@@ -29,32 +29,32 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
 
     return (
-      <div id="city-search">
-        <input
-        type="text"
-        className="city"
-        placeholder="Search for a city"
-        value={query}
-        onFocus={() => setShowSuggestions(true)}
-        onChange={handleInputChanged}
-        />
-        { showSuggestions ? (
-        <ul className="suggestions">
-            {suggestions.map((suggestion) => {
-                return (
-             <li onClick={handleItemClicked} key={suggestion}>
-                {suggestion}
-                </li>
-                );
-            })}
-            <hr/>
-            <li key='See all cities' onClick={handleItemClicked}>
-                <b>See all cities</b>
-            </li>
-        </ul> 
-        ) : null }
-      </div>
+        <div id="city-search">
+            <input
+                type="text"
+                className="city"
+                placeholder="Search for a city"
+                value={query}
+                onFocus={() => setShowSuggestions(true)}
+                onChange={handleInputChanged}
+            />
+            {showSuggestions ? (
+                <ul className="suggestions">
+                    {suggestions.map((suggestion) => {
+                        return (
+                            <li onClick={handleItemClicked} key={suggestion}>
+                                {suggestion}
+                            </li>
+                        );
+                    })}
+                    <hr />
+                    <li key='See all cities' onClick={handleItemClicked}>
+                        <b>See all cities</b>
+                    </li>
+                </ul>
+            ) : null}
+        </div>
     );
-   }
-   
-   export default CitySearch;
+}
+
+export default CitySearch;

@@ -112,7 +112,7 @@ input[type="number"] {
   margin-right: auto;
 }
 
-.details-button {
+.details-btn {
   margin-top: 20px;
   background-color: rgb(58, 57, 57);
   color: #ccc;
@@ -122,7 +122,7 @@ input[type="number"] {
   transition: transform .5s;
 }
 
-.details-button:hover {
+.details-btn:hover {
   transform: scale(1.05);
 }
 

@@ -17,36 +17,36 @@ const App = () => {
 
     const allEvents = await getEvents();
     let filteredEvents = currentCity === "See all cities" ?
-    allEvents :
-    allEvents.filter(event => event.location === currentCity)
-       // Check to see if there are events and allEvents count
-       if (currentNOE && currentNOE < filteredEvents.length) {
-        filteredEvents = filteredEvents.slice(0, currentNOE)
-      }
-      setEvents(filteredEvents.slice(0, currentNOE));
+      allEvents :
+      allEvents.filter(event => event.location === currentCity)
+    // Check to see if there are events and allEvents count
+    if (currentNOE && currentNOE < filteredEvents.length) {
+      filteredEvents = filteredEvents.slice(0, currentNOE)
+    }
+    setEvents(filteredEvents.slice(0, currentNOE));
 
     setAllLocations(extractLocations(allEvents));
   }
 
- useEffect(() => {
-fetchData();
-}, [currentCity, currentNOE]); 
+  useEffect(() => {
+    fetchData();
+  }, [currentCity, currentNOE]);
 
-return (
-  <div className="App">
-    <h1>Meet</h1>
+  return (
+    <div className="App">
+      <h1>Meet</h1>
 
-    {/* Search bar */}
-    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity}/>
+      {/* Search bar */}
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
 
-    {/* Events filter */}
-    <NumberOfEvents setCurrentNOE={setCurrentNOE}/>
+      {/* Events filter */}
+      <NumberOfEvents setCurrentNOE={setCurrentNOE} />
 
-    {/* Events */}
-    <EventList events={events}/>
+      {/* Events */}
+      <EventList events={events} />
 
-  </div>
-);
+    </div>
+  );
 }
 
 export default App;
