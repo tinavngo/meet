@@ -29,8 +29,8 @@ export const getAccessToken = async () => {
                 "https://do1hq8sag2.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url"
             );
             const result = await response.json();
-            const { authURL } = result;
-            return (window.location.href = authURL);
+            const { authUrl } = result;
+            return (window.location.href = authUrl);
         }
         return code && getToken(code);
     }
@@ -88,6 +88,7 @@ const removeQuery = () => {
 
 export const getEvents = async () => {
 
+    //Comment this out for testing oAuth
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
