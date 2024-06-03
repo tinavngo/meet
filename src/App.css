@@ -135,6 +135,14 @@ input[type="number"] {
   z-index: 1000;
 }
 
+/* Alerts */
+.alerts-container {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  width: 250px;
+  z-index: 1000;
+}
 
 @keyframes App-logo-spin {
   from {
