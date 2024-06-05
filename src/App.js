@@ -37,7 +37,7 @@ const App = () => {
     if (navigator.onLine) {
       setWarningError('');
     } else {
-      setWarningError('You are currently offline, events are loaded form cache!');
+      setWarningError('You are currently offline, events are loaded from cache!');
     }
     fetchData();
   }, [currentCity, currentNOE]);
