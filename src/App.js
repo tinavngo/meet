@@ -3,7 +3,7 @@ import { getEvents, extractLocations } from './api';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import './App.css';
 
 
@@ -15,6 +15,8 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningError] = useState("");
+
 
   const fetchData = async () => {
 
@@ -32,6 +34,11 @@ const App = () => {
   }
 
   useEffect(() => {
+    if (navigator.onLine) {
+      setWarningError('');
+    } else {
+      setWarningError('You are currently offline, events are loaded form cache!');
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -43,8 +50,8 @@ const App = () => {
       <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
-
       {/* Search bar */}
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
 
