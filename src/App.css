@@ -3,7 +3,7 @@
 html, body {
   height: 100%; /* Makes sure the height of the body is full viewport height */
   margin: 0; /* Removes default margin */
-  background-color: #f0f0f0; /* Optional: Sets a background color */
+  background-color: whitesmoke; /* Optional: Sets a background color */
 }
 
 .App {
@@ -36,6 +36,10 @@ p {
   align-items: center; 
   justify-content: center;
   gap: 8px; 
+}
+
+#number-of-events input {
+  width: 40px;
 }
 
 input[type="text"],
@@ -142,6 +146,20 @@ input[type="number"] {
   left: 20px;
   width: 250px;
   z-index: 1000;
+}
+
+/* Charts */
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 @keyframes App-logo-spin {
