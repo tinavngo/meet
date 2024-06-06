@@ -5,7 +5,7 @@
 import '@testing-library/jest-dom';
 
 // Intentionally preventing warning messages from appearing
-const  MESSAGES_TO_IGNORE = [
+const MESSAGES_TO_IGNORE = [
     "When testing, code that causes React state updates should be wrapped into act(...):",
     "Error:",
     "The above error ocurred",

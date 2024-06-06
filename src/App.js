@@ -53,18 +53,18 @@ const App = () => {
       <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
       {/* Search bar */}
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
 
       {/* Events filter */}
       <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
 
       {/* Event charts */}
       <div className="charts-container">
-       <EventGenresChart events={events}/>
-       <CityEventsChart allLocations={allLocations} events={events}/>
+        <EventGenresChart events={events} />
+        <CityEventsChart allLocations={allLocations} events={events} />
       </div>
 
       {/* Events */}

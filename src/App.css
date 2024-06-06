@@ -1,9 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
-html, body {
-  height: 100%; /* Makes sure the height of the body is full viewport height */
-  margin: 0; /* Removes default margin */
-  background-color: #FFFFFF; /* Optional: Sets a background color */
+html,
+body {
+  height: 100%;
+  /* Makes sure the height of the body is full viewport height */
+  margin: 0;
+  /* Removes default margin */
+  background-color: #FFFFFF;
+  /* Optional: Sets a background color */
   scroll-behavior: smooth;
 }
 
@@ -25,7 +29,9 @@ p {
   margin: 5px 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #533747;
 }
 
@@ -37,9 +43,9 @@ h1, h2, h3 {
 
 #number-of-events {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
-  gap: 8px; 
+  gap: 8px;
 }
 
 #number-of-events input {
@@ -88,19 +94,19 @@ input[type="number"] {
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
 
-.suggestions > li {
+.suggestions>li {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: white;
   cursor: default;
 }
 
-.suggestions > li:last-child {
+.suggestions>li:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.suggestions > li:hover {
+.suggestions>li:hover {
   background-color: #bcdcdb;
 }
 
@@ -114,13 +120,13 @@ input[type="number"] {
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  position:relative;
-  background-color:#E5E5E5;
+  position: relative;
+  background-color: #E5E5E5;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
-.event p{
+.event p {
   margin-right: 10%;
   margin-left: 10%;
 }
@@ -180,6 +186,7 @@ input[type="number"] {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

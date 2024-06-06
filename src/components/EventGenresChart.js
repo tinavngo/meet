@@ -32,41 +32,41 @@ const EventGenresChart = ({ events }) => {
         const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
         const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
         return percent ? (
-          <text
-            x={x}
-            y={y}
-            fill="#8884d8"
-            textAnchor={x > cx ? 'start' : 'end'}
-            dominantBaseline="central"
-          >
-            {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
-          </text>
+            <text
+                x={x}
+                y={y}
+                fill="#8884d8"
+                textAnchor={x > cx ? 'start' : 'end'}
+                dominantBaseline="central"
+            >
+                {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
+            </text>
         ) : null;
-      };
+    };
 
-      const colors = ['#75DDDD', '#508991', '#172A3A', '#004346', '#09BC8A'];
+    const colors = ['#75DDDD', '#508991', '#172A3A', '#004346', '#09BC8A'];
 
     return (
         <ResponsiveContainer width="99%" height={400}>
-          <PieChart>
-            <Pie
-              data={data}
-              dataKey="value"
-              fill="#8884d8"
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={150}          
-            >
-                {
-                data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index]}/>
-                ))
-              }
-            </Pie>
-            <Legend height={36}/>
-          </PieChart>
+            <PieChart>
+                <Pie
+                    data={data}
+                    dataKey="value"
+                    fill="#8884d8"
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={150}
+                >
+                    {
+                        data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={colors[index]} />
+                        ))
+                    }
+                </Pie>
+                <Legend height={36} />
+            </PieChart>
         </ResponsiveContainer>
-      );
+    );
 }
 
 export default EventGenresChart;
