@@ -3,7 +3,8 @@
 html, body {
   height: 100%; /* Makes sure the height of the body is full viewport height */
   margin: 0; /* Removes default margin */
-  background-color: whitesmoke; /* Optional: Sets a background color */
+  background-color: #FFFFFF; /* Optional: Sets a background color */
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -24,6 +25,9 @@ p {
   margin: 5px 0;
 }
 
+h1, h2, h3 {
+  color: #533747;
+}
 
 /* number of events */
 
@@ -105,21 +109,31 @@ input[type="number"] {
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
-  margin-top: 10px;
-  width: 900px;
+  margin-top: 30px;
+  width: 800px;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   position:relative;
-  background-color:rgb(233, 239, 243);
+  background-color:#E5E5E5;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
+}
+
+.event p{
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+#event-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .details-btn {
   margin-top: 20px;
-  background-color: rgb(58, 57, 57);
-  color: #ccc;
+  background-color: #5F506B;
+  color: #FFFFFF;
   cursor: pointer;
   border-radius: 4px;
   padding: 5px 8px;

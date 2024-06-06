@@ -47,6 +47,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Meet</h1>
+      <p>Search for events in a selected city!</p>
 
       {/* Alerts */}
       <div className='alerts-container'>
